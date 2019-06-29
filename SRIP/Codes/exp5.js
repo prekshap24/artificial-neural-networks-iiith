@@ -1,35 +1,35 @@
 window.onload = function(){
 	function energy1(){
 		var ev1 = "0 0 0";
-		console.log(ev1);
+		//console.log(ev1);
 	}
 	function energy2(){
 		var ev2 = "0 0 1";
-		console.log(ev2);
+		//console.log(ev2);
 	}
 	function energy3(){
 		var ev3 = "1 0 0";
-		console.log(ev3);
+		//console.log(ev3);
 	}
 	function energy4(){
 		var ev4 = "1 0 1";
-		console.log(ev4);
+		//console.log(ev4);
 	}
 	function energy5(){
 		var ev5 = "0 1 0";
-		console.log(ev5);
+		//console.log(ev5);
 	}
 	function energy6(){
 		var ev6 = "0 1 1";
-		console.log(ev6);
+		//console.log(ev6);
 	}
 	function energy7(){
 		var ev7 = "1 1 0";
-		console.log(ev7);
+		//console.log(ev7);
 	}
 	function energy8(){
 		var ev8 = "1 1 1";
-		console.log(ev8);
+		//console.log(ev8);
 	}
 
 	var e1 = document.getElementById("mc1");
@@ -48,4 +48,4 @@ window.onload = function(){
 	e7.addEventListener("click", energy7);
 	var e8 = document.getElementById("mc8");
 	e8.addEventListener("click", energy8);
-}
+};
