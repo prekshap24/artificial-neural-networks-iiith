@@ -8,12 +8,12 @@ window.onload = function(){
 	var ev6;
 	var ev7;
 	var ev8;
-	var w21;
-	var w32;
-	var w13;
-	var t1;
-	var t2;
-	var t3;
+	var w21 = 0;
+	var w32 = 0;
+	var w13 = 0;
+	var t1 = 0;
+	var t2 = 0;
+	var t3 = 0;
 
 	var slider1 = document.getElementById("w12");
 	var w12 = document.getElementById("demo1");
@@ -93,7 +93,7 @@ window.onload = function(){
 	}
 
 	function submit(){
-		if(count != 2){
+		if(count !== 2){
 			alert("Please select 2 States!");
 			alert("Refresh the page and Start again!");
 			return 0;
@@ -103,53 +103,53 @@ window.onload = function(){
 		document.getElementById("p3").style.display = "none";
 		document.getElementById("submit").style.display = "none";
 		document.getElementById("image").style.display = "none";
-		document.getElementById("title").innerHTML = "HINT -->> W12=0.5; W23=0.6; W31=-0.5; Th1=0.4; Th2=-0.6; Th3=0.5";
+		document.getElementById("title").textContent = "HINT -->> W12=0.5; W23=0.6; W31=-0.5; Th1=0.4; Th2=-0.6; Th3=0.5";
 		document.getElementById("column3").style.visibility = "visible";
 	}
 
 	w12.innerHTML = slider1.value;
 	slider1.oninput = function(){
 		w21 = this.value;
-		w12.innerHTML = this.value;
+		w12.textContent = this.value;
 	}
 
 	w23.innerHTML = slider2.value;
 	slider2.oninput = function() {
 		w32 = this.value;
-		w23.innerHTML = this.value;
+		w23.textContent = this.value;
 	}
 
 	w31.innerHTML = slider3.value;
 	slider3.oninput = function() {
 		w13 = this.value;
-		w31.innerHTML = this.value;
+		w31.textContent = this.value;
 	}
 
 	th1.innerHTML = slider4.value;
 	slider4.oninput = function() {
 		t1 = this.value;
-		th1.innerHTML = this.value;
+		th1.textContent = this.value;
 	}
 
 	th2.innerHTML = slider5.value;
 	slider5.oninput = function() {
 		t2 = this.value;
-		th2.innerHTML = this.value;
+		th2.textContent = this.value;
 	}
 
 	th3.innerHTML = slider6.value;
 	slider6.oninput = function() {
 		t3 = this.value;
-		th3.innerHTML = this.value;
+		th3.textContent = this.value;
 	};
 
 	function done(){
-		/*console.log(w21);
+		console.log(w21);
 		console.log(w32);
 		console.log(w13);
 		console.log(t1);
 		console.log(t2);
-		console.log(t3);*/
+		console.log(t3);
 		document.getElementById("column3").style.visibility = "hidden";
 	}
 
