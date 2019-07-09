@@ -28,6 +28,10 @@ window.onload = function(){
 	var slider6 = document.getElementById("th3");
 	var th3 = document.getElementById("demo6");
 
+	function hammDistance(){
+
+	}
+
 	function energy1(){
 		ev1 = "0 0 0";
 		//console.log(ev1);
@@ -144,12 +148,12 @@ window.onload = function(){
 	};
 
 	function done(){
-		console.log(w21);
+		/*console.log(w21);
 		console.log(w32);
 		console.log(w13);
 		console.log(t1);
 		console.log(t2);
-		console.log(t3);
+		console.log(t3);*/
 		document.getElementById("column3").style.visibility = "hidden";
 	}
 
