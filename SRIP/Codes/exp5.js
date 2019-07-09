@@ -108,7 +108,7 @@ window.onload = function(){
 	}
 
 	w12.innerHTML = slider1.value;
-	slider1.oninput = function() {
+	slider1.oninput = function(){
 		w21 = this.value;
 		w12.innerHTML = this.value;
 	}
@@ -141,7 +141,7 @@ window.onload = function(){
 	slider6.oninput = function() {
 		t3 = this.value;
 		th3.innerHTML = this.value;
-	}
+	};
 
 	function done(){
 		/*console.log(w21);
@@ -155,20 +155,20 @@ window.onload = function(){
 
 	var add = document.getElementById("e1");
 	add.addEventListener("click", energy1);
-	var add = document.getElementById("e2");
-	add.addEventListener("click", energy2);
-	var add = document.getElementById("e3");
-	add.addEventListener("click", energy3);
-	var add = document.getElementById("e4");
-	add.addEventListener("click", energy4);
-	var add = document.getElementById("e5");
-	add.addEventListener("click", energy5);
-	var add = document.getElementById("e6");
-	add.addEventListener("click", energy6);
-	var add = document.getElementById("e7");
-	add.addEventListener("click", energy7);
-	var add = document.getElementById("e8");
-	add.addEventListener("click", energy8);
+	var add2 = document.getElementById("e2");
+	add2.addEventListener("click", energy2);
+	var add3 = document.getElementById("e3");
+	add3.addEventListener("click", energy3);
+	var add4 = document.getElementById("e4");
+	add4.addEventListener("click", energy4);
+	var add5 = document.getElementById("e5");
+	add5.addEventListener("click", energy5);
+	var add6 = document.getElementById("e6");
+	add6.addEventListener("click", energy6);
+	var add7 = document.getElementById("e7");
+	add7.addEventListener("click", energy7);
+	var add8 = document.getElementById("e8");
+	add8.addEventListener("click", energy8);
 	var sub = document.getElementById("submit");
 	sub.addEventListener("click", submit);
 	var don = document.getElementById("done");
