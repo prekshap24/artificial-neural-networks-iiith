@@ -1,5 +1,5 @@
 window.onload = function(){
-	var count=0;
+	var count = 0;
 	var ev1;
 	var ev2;
 	var ev3;
@@ -8,12 +8,22 @@ window.onload = function(){
 	var ev6;
 	var ev7;
 	var ev8;
+	var value1 = -1;
+	var value2 = 0;
+	var value3 = 0;
+	var value4 = 0;
+	var value5 = 0;
+	var value6 = 0;
+	var value7 = 0;
+	var value8 = 0;
 	var w21 = 0;
 	var w32 = 0;
 	var w13 = 0;
 	var t1 = 0;
 	var t2 = 0;
 	var t3 = 0;
+	var n1 = -1;
+	var n2 = -1;
 
 	var slider1 = document.getElementById("w12");
 	var w12 = document.getElementById("demo1");
@@ -28,77 +38,85 @@ window.onload = function(){
 	var slider6 = document.getElementById("th3");
 	var th3 = document.getElementById("demo6");
 
-	function hammDistance(){
-
+	function hammDistance(value1, value2){
+		var x = value1 ^ value2;
+		var setBits = 0;
+		while (x > 0) {
+			setBits += x & 1;
+			x >>= 1;
+		}
+		return setBits;
 	}
 
 	function energy1(){
 		ev1 = "0 0 0";
-		//console.log(ev1);
+		value1 = 0;
 		document.getElementById("e1").innerHTML = "<span style='color: blue;'>0 0 0</span>";
 		count = count + 1;
-		//console.log(count);
+
 	}
 
 	function energy2(){
 		ev2 = "0 0 1";
-		//console.log(ev2);
+		value2 = 1;
 		document.getElementById("e2").innerHTML = "<span style='color: blue;'>0 0 1</span>";
 		count = count + 1;
-		//console.log(count);
 	}
 
 	function energy3(){
 		ev3 = "1 0 0";
-		//console.log(ev3);
-		document.getElementById("e3").innerHTML = "<span style='color: blue;'>0 0 0</span>";
+		value3 = 4;
+		document.getElementById("e3").innerHTML = "<span style='color: blue;'>1 0 0</span>";
 		count = count + 1;
-		//console.log(count);
 	}
 
 	function energy4(){
 		ev4 = "1 0 1";
-		//console.log(ev4);
-		document.getElementById("e4").innerHTML = "<span style='color: blue;'>0 0 0</span>";
+		value4 = 5;
+		document.getElementById("e4").innerHTML = "<span style='color: blue;'>1 0 1</span>";
 		count = count + 1;
-		//console.log(count);
 	}
 
 	function energy5(){
 		ev5 = "0 1 0";
-		//console.log(ev5);
-		document.getElementById("e5").innerHTML = "<span style='color: blue;'>0 0 0</span>";
+		value5 = 2;
+		document.getElementById("e5").innerHTML = "<span style='color: blue;'>0 1 0</span>";
 		count = count + 1;
-		//console.log(count);
 	}
 
 	function energy6(){
 		ev6 = "0 1 1";
-		//console.log(ev6);
-		document.getElementById("e6").innerHTML = "<span style='color: blue;'>0 0 0</span>";
+		value6 = 3;
+		document.getElementById("e6").innerHTML = "<span style='color: blue;'>0 1 1</span>";
 		count = count + 1;
-		//console.log(count);
 	}
 
 	function energy7(){
 		ev7 = "1 1 0";
-		//console.log(ev7);
-		document.getElementById("e7").innerHTML = "<span style='color: blue;'>0 0 0</span>";
+		value7 = 6;
+		document.getElementById("e7").innerHTML = "<span style='color: blue;'>1 1 0</span>";
 		count = count + 1;
-		//console.log(count);
 	}
 
 	function energy8(){
 		ev8 = "1 1 1";
-		//console.log(ev8);
-		document.getElementById("e8").innerHTML = "<span style='color: blue;'>0 0 0</span>";
+		value8 = 7;
+		document.getElementById("e8").innerHTML = "<span style='color: blue;'>1 1 1</span>";
 		count = count + 1;
-		//console.log(count);
 	}
+
+
 
 	function submit(){
 		if(count !== 2){
 			alert("Please select 2 States!");
+			alert("Refresh the page and Start again!");
+			return 0;
+		}
+
+		var hd = hammDistance(n1, n2);
+		if(hd < 2){
+			alert("Hamming distance for energy states should be more than 1!");
 			alert("Refresh the page and Start again!");
 			return 0;
 		}
