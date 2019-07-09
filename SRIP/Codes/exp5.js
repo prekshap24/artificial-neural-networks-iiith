@@ -114,7 +114,7 @@ window.onload = function(){
 			return 0;
 		}
 
-		var hd = hammDistance(n1, n2);
+		var hd = hammDistance(value1, value4);
 		if(hd < 2){
 			alert("Hamming distance for energy states should be more than 1!");
 			alert("Refresh the page and Start again!");
