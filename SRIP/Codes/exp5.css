@@ -44,7 +44,7 @@ width: 100%;
 
 padding: 15px;
 
-background-color: #A9A9A9;
+background-color: #B8B8B8;
 
 font-size: 16px;
 
@@ -74,6 +74,21 @@ padding: 30px;
 
 }
 
+.column-3 {
+
+float: center;
+
+text-align: center;
+
+width: 80%;
+
+padding: 30px;
+
+font-size: 16px;
+
+visibility: hidden
+
+}
 
 .button{
 
@@ -103,7 +118,7 @@ width: 50%;
 
 .slidecontainer {
 
-width: 80%;
+width: 50%;
 
 }
 
@@ -112,7 +127,7 @@ width: 80%;
 
 -webkit-appearance: none;
 
-width: 100%;
+width: 60%;
 
 height: 25px;
 

@@ -8,49 +8,49 @@
 
 <body>
 	<div class = "row">
-		<div class = "column-0">
+		<div class = "column-0" id = "title">
 			HINT -->> CLICK ON '011' AND '110' TO BE REPRESENTED AS STABLE STATES
 		</div>
 	</div>
 	
 	<div class = "row">
 		<div class = "column-1">
-			<div class="boxed" id = "mc1">
+			<div class="boxed" id="e1">
 				<button>0 0 0</button>
 			</div>
 		</div>
 		<div class = "column-1">
-			<div class="boxed" id = "mc2">
+			<div class="boxed" id="e2">
 				<button>0 0 1</button>
 			</div>
 		</div>
 		<div class = "column-1">
-			<div class="boxed" id = "mc3">
+			<div class="boxed" id="e3">
 				<button>1 0 0</button>
 			</div>
 		</div>
 		<div class = "column-1">
-			<div class="boxed" id = "mc4">
+			<div class="boxed" id="e4">
 				<button>1 0 1</button>
 			</div>
 		</div>
 		<div class = "column-1">
-			<div class="boxed" id = "mc5">
+			<div class="boxed" id="e5">
 				<button>0 1 0</button>
 			</div>
 		</div>
 		<div class = "column-1">
-			<div class="boxed" id = "mc6">
+			<div class="boxed" id="e6">
 				<button>0 1 1</button>
 			</div>
 		</div>
 		<div class = "column-1">
-			<div class="boxed" id = "mc7">
+			<div class="boxed" id="e7">
 				<button>1 1 0</button>
 			</div>
 		</div>
 		<div class = "column-1">
-			<div class="boxed" id = "mc8">
+			<div class="boxed" id="e8">
 				<button>1 1 1</button>
 			</div>
 		</div>
@@ -58,15 +58,32 @@
 	
 	<div class = "row">
 		<div class = "column-2">
-			<p>CLICK OVER THE STATES TO CHOOSE THEM AS MINIMUM ENERGY STATES</p>
-			<p>YOU CAN CHOOSE AT MOST TWO STATES AS MINIMUM</p>
-			<p>MAKE SURE THEY ARE SEPARATED BY MORE THAN ONE HAMMING DISTANCE</p>
-			<p><button><a href="exp51.html">SUBMIT</a></button></p>
+			<p id = "p1">CLICK OVER THE STATES TO CHOOSE THEM AS MINIMUM ENERGY STATES</p>
+			<p id = "p2">YOU CAN CHOOSE AT MOST TWO STATES AS MINIMUM</p>
+			<p id = "p3">MAKE SURE THEY ARE SEPARATED BY MORE THAN ONE HAMMING DISTANCE</p>
+			<p><button id = "submit">SUBMIT</button></p>
 		</div>
 	</div>
 	
-	<div class = "row">
+	<div class = "row" id="image">
 		<img src="3unit.png" alt="3 node graph" class = "image">
 	</div>
+
+	<div class = "row">
+		<div class = "column-3" id="column3">
+			<p>ADJUST THE WEIGHTS AND THRESHOLD FOR NEW STD</p>
+			<p>W12 = W21 <input type="range" min="-1" max="1" step="0.1" value="0" class="slider" id="w12">Value: <span id="demo1" style="text-align: right;"></span></p>
+			<p>W23 = W32 <input type="range" min="-1" max="1" step="0.1" value="0" class="slider" id="w23">Value: <span id="demo2" style="text-align: right;"></span></p>
+			<p>W31 = W13 <input type="range" min="-1" max="1" step="0.1" value="0" class="slider" id="w31">Value: <span id="demo3" style="text-align: right;"></span></p>
+			<p>Threshold 1 <input type="range" min="-1" max="1" step="0.1" value="0" class="slider" id="th1">Value: <span id="demo4" style="text-align: right;"></span></p>
+			<p>Threshold 2 <input type="range" min="-1" max="1" step="0.1" value="0" class="slider" id="th2">Value: <span id="demo5" style="text-align: right;"></span></p>
+			<p>Threshold 3 <input type="range" min="-1" max="1" step="0.1" value="0" class="slider" id="th3">Value: <span id="demo6" style="text-align: right;"></span></p>
+			<p><button id = "done">DONE</button></p>
+		</div>
+	</div>
+
+
+
+
 </body>
 </html>
