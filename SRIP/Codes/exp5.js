@@ -21,6 +21,7 @@ window.onload = function(){
 	var ansarray = [];
 	var arr1 = [];
 	var arr2 = [];
+	var map1 = new Map();
 
 	var slider1 = document.getElementById("w12");
 	var w12 = document.getElementById("demo1");
@@ -35,6 +36,7 @@ window.onload = function(){
 	var slider6 = document.getElementById("th3");
 	var th3 = document.getElementById("demo6");
 
+//calculating hamming distancebetween 2 energy states
 	function hammDistance(value1, value2){
 		var x = value1 ^ value2;
 		var setBits = 0;
@@ -45,6 +47,7 @@ window.onload = function(){
 		return setBits;
 	}
 
+//when button 000 is pressed
 	function energy1(){
 		document.getElementById("e1").innerHTML = "<span style='color: blue;'>0 0 0</span>";
 		count = count + 1;
@@ -53,6 +56,7 @@ window.onload = function(){
 		ansarray.push(0);
 	}
 
+//when button 001 is pressed
 	function energy2(){
 		document.getElementById("e2").innerHTML = "<span style='color: blue;'>0 0 1</span>";
 		count = count + 1;
@@ -61,6 +65,7 @@ window.onload = function(){
 		ansarray.push(1);
 	}
 
+//when button 010 is pressed
 	function energy3(){
 		document.getElementById("e3").innerHTML = "<span style='color: blue;'>0 1 0</span>";
 		count = count + 1;
@@ -69,6 +74,7 @@ window.onload = function(){
 		ansarray.push(0);
 	}
 
+//when button 100 is pressed
 	function energy4(){
 		document.getElementById("e4").innerHTML = "<span style='color: blue;'>1 0 0</span>";
 		count = count + 1;
@@ -77,6 +83,7 @@ window.onload = function(){
 		ansarray.push(0);
 	}
 
+//when button 011 is pressed
 	function energy5(){
 		document.getElementById("e5").innerHTML = "<span style='color: blue;'>0 1 1</span>";
 		count = count + 1;
@@ -85,6 +92,7 @@ window.onload = function(){
 		ansarray.push(1);
 	}
 
+//when button 101 is pressed
 	function energy6(){
 		document.getElementById("e6").innerHTML = "<span style='color: blue;'>1 0 1</span>";
 		count = count + 1;
@@ -93,6 +101,7 @@ window.onload = function(){
 		ansarray.push(1);
 	}
 
+//when button 110 is pressed
 	function energy7(){
 		document.getElementById("e7").innerHTML = "<span style='color: blue;'>1 1 0</span>";
 		count = count + 1;
@@ -101,6 +110,7 @@ window.onload = function(){
 		ansarray.push(0);
 	}
 
+//when button 111 is pressed
 	function energy8(){
 		document.getElementById("e8").innerHTML = "<span style='color: blue;'>1 1 1</span>";
 		count = count + 1;
@@ -109,6 +119,7 @@ window.onload = function(){
 		ansarray.push(1);
 	}
 
+//On clicking submit button
 	function submit(){
 		var j = 0;
 		if(count !== 2){
@@ -175,6 +186,7 @@ window.onload = function(){
 		th3.textContent = this.value;
 	};
 
+//displaying the equations
 	function showe(){
 		if(arr2[0] === 0 && arr2[1] === 0 && arr2[2] === 0){
 			document.getElementById("equation-2").textContent = "W12*(0) + W13*(0) <= th1 || W21*(0) + W23*(0) <= th2 || W31*(0) + W32*(0) <= th3";
@@ -231,12 +243,14 @@ window.onload = function(){
 		showe();
 	}
 
+//On clicking the Done button
 	function done(){
 		document.getElementById("column3").style.visibility = "hidden";
 		document.getElementById("title").textContent = "";
 		document.getElementById("column4").style.visibility = "visible";
 	}
 
+//Calculation of the energies
 	function calculateEnergy(){
 		var i = 0;
 		var w11 = 0;
@@ -246,16 +260,41 @@ window.onload = function(){
 		for(i = 0; i < 8; i++){
 			num = (-1/2 * ((w11 * all8[i][0] * all8[i][0]) + (w21 * all8[i][0] * all8[i][1]) + (w13 * all8[i][0] * all8[i][2]) + (w21 * all8[i][1] * all8[i][0]) + (w22 * all8[i][1] * all8[i][1]) + (w32 * all8[i][1] * all8[i][2]) + (w13 * all8[i][2] * all8[i][0]) + (w32 * all8[i][2] * all8[i][1]) + (w33 * all8[i][2] * all8[i][2]))) + ((all8[i][0] * t1) + (all8[i][1] * t2) + (all8[i][2] * t3));
 			valenergy[i] = Math.round(num * 100) / 100;
-			//console.log(valenergy[i]);
 		}
-		document.getElementById("en1").textContent = valenergy[0];
-		document.getElementById("en2").textContent = valenergy[1];
-		document.getElementById("en3").textContent = valenergy[2];
-		document.getElementById("en4").textContent = valenergy[3];
-		document.getElementById("en5").textContent = valenergy[4];
-		document.getElementById("en6").textContent = valenergy[5];
-		document.getElementById("en7").textContent = valenergy[6];
-		document.getElementById("en8").textContent = valenergy[7];
+		map1.set("0 0 0" , valenergy[0]);
+		map1.set("0 0 1" , valenergy[1]);
+		map1.set("0 1 0" , valenergy[2]);
+		map1.set("1 0 0" , valenergy[3]);
+		map1.set("0 1 1" , valenergy[4]);
+		map1.set("1 0 1" , valenergy[5]);
+		map1.set("1 1 0" , valenergy[6]);
+		map1.set("1 1 1" , valenergy[7]);
+		var ar = [];
+		var ra = [];
+		const mapSort = new Map([...map1.entries()].sort((a, b) => b[1] - a[1])); 
+		i = 0;
+		for (var [key, value] of mapSort.entries()) { 
+			ar[i] = key;
+			ra[i] = value;
+			i = i + 1; 
+		}
+
+		document.getElementById("ne1").textContent = ar[0];
+		document.getElementById("ne2").textContent = ar[1];
+		document.getElementById("ne3").textContent = ar[2];
+		document.getElementById("ne4").textContent = ar[3];
+		document.getElementById("ne5").textContent = ar[4];
+		document.getElementById("ne6").textContent = ar[5];
+		document.getElementById("ne7").textContent = ar[6];
+		document.getElementById("ne8").textContent = ar[7];
+		document.getElementById("en1").textContent = ra[0];
+		document.getElementById("en2").textContent = ra[1];
+		document.getElementById("en3").textContent = ra[2];
+		document.getElementById("en4").textContent = ra[3];
+		document.getElementById("en5").textContent = ra[4];
+		document.getElementById("en6").textContent = ra[5];
+		document.getElementById("en7").textContent = ra[6];
+		document.getElementById("en8").textContent = ra[7];
 		document.getElementById("calculate-energy").style.visibility = "hidden";
 		document.getElementById("final").style.visibility = "visible";
 	}
