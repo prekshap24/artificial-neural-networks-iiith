@@ -71,11 +71,12 @@
 
 	<div class = "row">
 		<div class = "column-3" id = "column3">
-			<p> THE FOLLOWING ACTIVATION  DYNAMICS EQUATIONS MUST BE SATISFIED: </p>
-			<p><button id = "see-equations">SEE EQUATIONS</button></p>
-			<p id = "equation-1"> </p>
-			<p id = "equation-2"> </p>
-			<p></p>
+			<div class = "column-0">
+				<p> THE FOLLOWING ACTIVATION  DYNAMICS EQUATIONS MUST BE SATISFIED: </p>
+				<p><button id = "see-equations">SEE EQUATIONS</button></p>
+				<p id = "equation-1"> </p>
+				<p id = "equation-2"> </p>
+			</div>
 			<p>ADJUST THE WEIGHTS AND THRESHOLD FOR NEW STD</p>
 			<p>W12 = W21 <input type = "range" min = "-1" max = "1" step = "0.1" value = "0" class = "slider" id = "w12">Value: <span id = "demo1" style = "text-align: right;"></span></p>
 			<p>W23 = W32 <input type = "range" min = "-1" max = "1" step = "0.1" value = "0" class = "slider" id = "w23">Value: <span id = "demo2" style = "text-align: right;"></span></p>
@@ -89,7 +90,7 @@
 
 	<div class = "row">
 		<div class = "column-4" id = "column4">
-			<h2> Energy Diagram</h2>
+			<h2> ENERGY DIAGRAM</h2>
 			<div class = "boxed">
 				0 0 0
 				<p style = 'color: red;' id = "en1"> </p>
