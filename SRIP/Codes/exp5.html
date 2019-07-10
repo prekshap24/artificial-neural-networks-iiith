@@ -2,8 +2,8 @@
 <html>
 <head>
 	<title>Hopfield model for pattern storage task</title>
-    <link type="text/css" href="exp5.css" rel="stylesheet">
-    <script type="text/javascript" src="exp5.js"></script>
+    <link type = "text/css" href = "exp5.css" rel = "stylesheet">
+    <script type = "text/javascript" src = "exp5.js"></script>
 </head>
 
 <body>
@@ -15,42 +15,42 @@
 	
 	<div class = "row">
 		<div class = "column-1">
-			<div class="boxed" id="e1">
+			<div class = "boxed" id = "e1">
 				<button>0 0 0</button>
 			</div>
 		</div>
 		<div class = "column-1">
-			<div class="boxed" id="e2">
+			<div class = "boxed" id = "e2">
 				<button>0 0 1</button>
 			</div>
 		</div>
 		<div class = "column-1">
-			<div class="boxed" id="e3">
+			<div class = "boxed" id = "e3">
 				<button>0 1 0</button>
 			</div>
 		</div>
 		<div class = "column-1">
-			<div class="boxed" id="e4">
+			<div class = "boxed" id = "e4">
 				<button>1 0 0</button>
 			</div>
 		</div>
 		<div class = "column-1">
-			<div class="boxed" id="e5">
+			<div class = "boxed" id = "e5">
 				<button>0 1 1</button>
 			</div>
 		</div>
 		<div class = "column-1">
-			<div class="boxed" id="e6">
+			<div class = "boxed" id = "e6">
 				<button>1 0 1</button>
 			</div>
 		</div>
 		<div class = "column-1">
-			<div class="boxed" id="e7">
+			<div class = "boxed" id = "e7">
 				<button>1 1 0</button>
 			</div>
 		</div>
 		<div class = "column-1">
-			<div class="boxed" id="e8">
+			<div class = "boxed" id = "e8">
 				<button>1 1 1</button>
 			</div>
 		</div>
@@ -65,21 +65,24 @@
 		</div>
 	</div>
 	
-	<div class = "row" id="image">
-		<img src="3unit.png" alt="3 node graph" class = "image">
+	<div class = "row" id = "image">
+		<img src = "3unit.png" alt = "3 node graph" class = "image">
 	</div>
 
 	<div class = "row">
 		<div class = "column-3" id = "column3">
 			<p> THE FOLLOWING ACTIVATION  DYNAMICS EQUATIONS MUST BE SATISFIED: </p>
 			<p><button id = "see-equations">SEE EQUATIONS</button></p>
+			<p id = "equation-1"> </p>
+			<p id = "equation-2"> </p>
+			<p></p>
 			<p>ADJUST THE WEIGHTS AND THRESHOLD FOR NEW STD</p>
-			<p>W12 = W21 <input type="range" min="-1" max="1" step="0.1" value="0" class="slider" id="w12">Value: <span id="demo1" style="text-align: right;"></span></p>
-			<p>W23 = W32 <input type="range" min="-1" max="1" step="0.1" value="0" class="slider" id="w23">Value: <span id="demo2" style="text-align: right;"></span></p>
-			<p>W31 = W13 <input type="range" min="-1" max="1" step="0.1" value="0" class="slider" id="w31">Value: <span id="demo3" style="text-align: right;"></span></p>
-			<p>Threshold 1 <input type="range" min="-1" max="1" step="0.1" value="0" class="slider" id="th1">Value: <span id="demo4" style="text-align: right;"></span></p>
-			<p>Threshold 2 <input type="range" min="-1" max="1" step="0.1" value="0" class="slider" id="th2">Value: <span id="demo5" style="text-align: right;"></span></p>
-			<p>Threshold 3 <input type="range" min="-1" max="1" step="0.1" value="0" class="slider" id="th3">Value: <span id="demo6" style="text-align: right;"></span></p>
+			<p>W12 = W21 <input type = "range" min = "-1" max = "1" step = "0.1" value = "0" class = "slider" id = "w12">Value: <span id = "demo1" style = "text-align: right;"></span></p>
+			<p>W23 = W32 <input type = "range" min = "-1" max = "1" step = "0.1" value = "0" class = "slider" id = "w23">Value: <span id = "demo2" style = "text-align: right;"></span></p>
+			<p>W31 = W13 <input type = "range" min = "-1" max = "1" step = "0.1" value = "0" class = "slider" id = "w31">Value: <span id = "demo3" style = "text-align: right;"></span></p>
+			<p>Threshold 1 <input type = "range" min = "-1" max = "1" step = "0.1" value = "0" class = "slider" id = "th1">Value: <span id = "demo4" style = "text-align: right;"></span></p>
+			<p>Threshold 2 <input type = "range" min = "-1" max = "1" step = "0.1" value = "0" class = "slider" id = "th2">Value: <span id = "demo5" style = "text-align: right;"></span></p>
+			<p>Threshold 3 <input type = "range" min = "-1" max = "1" step = "0.1" value = "0" class = "slider" id = "th3">Value: <span id = "demo6" style = "text-align: right;"></span></p>
 			<p><button id = "done">DONE</button></p>
 		</div>
 	</div>
@@ -87,39 +90,40 @@
 	<div class = "row">
 		<div class = "column-4" id = "column4">
 			<h2> Energy Diagram</h2>
-			<div class="boxed">
+			<div class = "boxed">
 				0 0 0
-				<p style='color: red;' id="en1"> </p>
+				<p style = 'color: red;' id = "en1"> </p>
 			</div>
-			<div class="boxed">
+			<div class = "boxed">
 				0 0 1
-				<p style='color: red;' id="en2"> </p>
+				<p style = 'color: red;' id = "en2"> </p>
 			</div>
-			<div class="boxed">
+			<div class = "boxed">
 				0 1 0
-				<p style='color: red;' id="en3"> </p>
+				<p style = 'color: red;' id = "en3"> </p>
 			</div>
-			<div class="boxed">
+			<div class = "boxed">
 				1 0 0
-				<p style='color: red;' id="en4"> </p>
+				<p style = 'color: red;' id = "en4"> </p>
 			</div>
-			<div class="boxed">
+			<div class = "boxed">
 				0 1 1
-				<p style='color: red;' id="en5"> </p>
+				<p style = 'color: red;' id = "en5"> </p>
 			</div>
-			<div class="boxed">
+			<div class = "boxed">
 				1 0 1
-				<p style='color: red;' id="en6"> </p>
+				<p style = 'color: red;' id = "en6"> </p>
 			</div>
-			<div class="boxed">
+			<div class = "boxed">
 				1 1 0
-				<p style='color: red;' id="en7"> </p>
+				<p style = 'color: red;' id = "en7"> </p>
 			</div>
-			<div class="boxed">
+			<div class = "boxed">
 				1 1 1
-				<p style='color: red;' id="en8"> </p>
+				<p style = 'color: red;' id = "en8"> </p>
 			</div>
 			<p><button id = "calculate-energy">CALCULATE ENERGY</button></p>
+			<p><button id = "final" style = 'visibility: hidden;'>SHOW THE FINAL MINIMUM ENERGY STATES</button></p>
 		</div>
 	</div>
 

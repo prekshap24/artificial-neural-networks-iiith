@@ -1,3 +1,11 @@
+/* 000 011
+000 101
+000 110
+000 111
+001 110
+001 111
+010 111
+100 111 */
 window.onload = function(){
 	var count = 0;
 	var n1 = 0;
@@ -11,6 +19,8 @@ window.onload = function(){
 	var all8 = [[0, 0, 0], [0, 0, 1], [0, 1, 0], [1, 0, 0], [0, 1, 1], [1, 0, 1], [1, 1, 0], [1, 1, 1]];
 	var valenergy = [];
 	var ansarray = [];
+	var arr1 = [];
+	var arr2 = [];
 
 	var slider1 = document.getElementById("w12");
 	var w12 = document.getElementById("demo1");
@@ -100,12 +110,18 @@ window.onload = function(){
 	}
 
 	function submit(){
+		var j = 0;
 		if(count !== 2){
 			alert("Please select 2 States!");
 			alert("Refresh the page and Start again!");
 			return 0;
 		}
-
+		arr1[0] = ansarray[0];
+		arr1[1] = ansarray[1];
+		arr1[2] = ansarray[2];
+		arr2[0] = ansarray[3];
+		arr2[1] = ansarray[4];
+		arr2[2] = ansarray[5];
 		n1 = (4 * ansarray[0]) + (2 * ansarray[1]) + (1 * ansarray[2]);
 		n2 = (4 * ansarray[3]) + (2 * ansarray[4]) + (1 * ansarray[5]);
 		var hd = hammDistance(n1, n2);
@@ -159,8 +175,60 @@ window.onload = function(){
 		th3.textContent = this.value;
 	};
 
-	function showequations(){
+	function showe(){
+		if(arr2[0] === 0 && arr2[1] === 0 && arr2[2] === 0){
+			document.getElementById("equation-2").textContent = "W12*(0) + W13*(0) <= th1 || W21*(0) + W23*(0) <= th2 || W31*(0) + W32*(0) <= th3";
+		}
+		else if(arr2[0] === 0 && arr2[1] === 0 && arr2[2] === 1){
+			document.getElementById("equation-2").textContent = "W12*(0) + W13*(1) <= th1 || W21*(0) + W23*(1) <= th2 || W31*(0) + W32*(0) > th3";
+		}
+		else if(arr2[0] === 0 && arr2[1] === 1 && arr2[2] === 0){
+			document.getElementById("equation-2").textContent = "W12*(1) + W13*(0) <= th1 || W21*(0) + W23*(0) > th2 || W31*(0) + W32*(1) <= th3";
+		}
+		else if(arr2[0] === 1 && arr2[1] === 0 && arr2[2] === 0){
+			document.getElementById("equation-2").textContent = "W12*(0) + W13*(0) > th1 || W21*(1) + W23*(0) <= th2 || W31*(1) + W32*(0) <= th3";
+		}
+		else if(arr2[0] === 0 && arr2[1] === 1 && arr2[2] === 1){
+			document.getElementById("equation-2").textContent = "W12*(1) + W13*(1) <= th1 || W21*(0) + W23*(1) > th2 || W31*(0) + W32*(1) > th3";
+		}
+		else if(arr2[0] === 1 && arr2[1] === 0 && arr2[2] === 1){
+			document.getElementById("equation-2").textContent = "W12*(0) + W13*(1) > th1 || W21*(1) + W23*(1) <= th2 || W31*(1) + W32*(0) > th3";
+		}
+		else if(arr2[0] === 1 && arr2[1] === 1 && arr2[2] === 0){
+			document.getElementById("equation-2").textContent = "W12*(1) + W13*(0) > th1 || W21*(1) + W23*(0) > th2 || W31*(1) + W32*(1) <= th3";
+		}
+		else if(arr2[0] === 1 && arr2[1] === 1 && arr2[2] === 1){
+			document.getElementById("equation-2").textContent = "W12*(1) + W13*(1) > th1 || W21*(1) + W23*(1) > th2 || W31*(1) + W32*(1) > th3";
+		}
+	}
 
+	function showequations(){
+		if(arr1[0] === 0 && arr1[1] === 0 && arr1[2] === 0){
+			document.getElementById("equation-1").textContent = "W12*(0) + W13*(0) <= th1 || W21*(0) + W23*(0) <= th2 || W31*(0) + W32*(0) <= th3";
+		}
+		else if(arr1[0] === 0 && arr1[1] === 0 && arr1[2] === 1){
+			document.getElementById("equation-1").textContent = "W12*(0) + W13*(1) <= th1 || W21*(0) + W23*(1) <= th2 || W31*(0) + W32*(0) > th3";
+		}
+		else if(arr1[0] === 0 && arr1[1] === 1 && arr1[2] === 0){
+			document.getElementById("equation-1").textContent = "W12*(1) + W13*(0) <= th1 || W21*(0) + W23*(0) > th2 || W31*(0) + W32*(1) <= th3";
+		}
+		else if(arr1[0] === 1 && arr1[1] === 0 && arr1[2] === 0){
+			document.getElementById("equation-1").textContent = "W12*(0) + W13*(0) > th1 || W21*(1) + W23*(0) <= th2 || W31*(1) + W32*(0) <= th3";
+		}
+		else if(arr1[0] === 0 && arr1[1] === 1 && arr1[2] === 1){
+			document.getElementById("equation-1").textContent = "W12*(1) + W13*(1) <= th1 || W21*(0) + W23*(1) > th2 || W31*(0) + W32*(1) > th3";
+		}
+		else if(arr1[0] === 1 && arr1[1] === 0 && arr1[2] === 1){
+			document.getElementById("equation-1").textContent = "W12*(0) + W13*(1) > th1 || W21*(1) + W23*(1) <= th2 || W31*(1) + W32*(0) > th3";
+		}
+		else if(arr1[0] === 1 && arr1[1] === 1 && arr1[2] === 0){
+			document.getElementById("equation-1").textContent = "W12*(1) + W13*(0) > th1 || W21*(1) + W23*(0) > th2 || W31*(1) + W32*(1) <= th3";
+		}
+		else if(arr1[0] === 1 && arr1[1] === 1 && arr1[2] === 1){
+			document.getElementById("equation-1").textContent = "W12*(1) + W13*(1) > th1 || W21*(1) + W23*(1) > th2 || W31*(1) + W32*(1) > th3";
+		}
+
+		showe();
 	}
 
 	function done(){
@@ -188,7 +256,11 @@ window.onload = function(){
 		document.getElementById("en6").textContent = valenergy[5];
 		document.getElementById("en7").textContent = valenergy[6];
 		document.getElementById("en8").textContent = valenergy[7];
+		document.getElementById("calculate-energy").style.visibility = "hidden";
+		document.getElementById("final").style.visibility = "visible";
 	}
+
+	function finalfunction(){}
 
 	var add = document.getElementById("e1");
 	add.addEventListener("click", energy1);
@@ -214,4 +286,6 @@ window.onload = function(){
 	don.addEventListener("click", done);
 	var cn = document.getElementById("calculate-energy");
 	cn.addEventListener("click", calculateEnergy);
+	var fn = document.getElementById("final");
+	fn.addEventListener("click", finalfunction);
 };
