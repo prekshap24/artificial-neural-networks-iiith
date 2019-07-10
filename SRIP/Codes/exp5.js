@@ -184,7 +184,7 @@ window.onload = function(){
 	slider6.oninput = function() {
 		t3 = this.value;
 		th3.textContent = this.value;
-	};
+	}
 
 //displaying the equations
 	function showe(){
