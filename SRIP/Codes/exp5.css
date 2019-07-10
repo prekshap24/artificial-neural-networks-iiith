@@ -82,11 +82,35 @@ text-align: center;
 
 width: 80%;
 
-padding: 30px;
+padding: 40px;
 
 font-size: 16px;
 
-visibility: hidden
+visibility: hidden;
+
+}
+
+.column-4 {
+
+float: center;
+
+text-align: center;
+
+width: 25%;
+
+padding: 20px;
+
+font-size: 16px;
+
+position: absolute;
+
+top: 15%;
+
+left: 35%;
+
+margin-right: -50%;
+
+visibility: hidden;
 
 }
 

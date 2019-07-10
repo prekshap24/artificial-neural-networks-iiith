@@ -26,22 +26,22 @@
 		</div>
 		<div class = "column-1">
 			<div class="boxed" id="e3">
-				<button>1 0 0</button>
-			</div>
-		</div>
-		<div class = "column-1">
-			<div class="boxed" id="e4">
-				<button>1 0 1</button>
-			</div>
-		</div>
-		<div class = "column-1">
-			<div class="boxed" id="e5">
 				<button>0 1 0</button>
 			</div>
 		</div>
 		<div class = "column-1">
-			<div class="boxed" id="e6">
+			<div class="boxed" id="e4">
+				<button>1 0 0</button>
+			</div>
+		</div>
+		<div class = "column-1">
+			<div class="boxed" id="e5">
 				<button>0 1 1</button>
+			</div>
+		</div>
+		<div class = "column-1">
+			<div class="boxed" id="e6">
+				<button>1 0 1</button>
 			</div>
 		</div>
 		<div class = "column-1">
@@ -70,7 +70,9 @@
 	</div>
 
 	<div class = "row">
-		<div class = "column-3" id="column3">
+		<div class = "column-3" id = "column3">
+			<p> THE FOLLOWING ACTIVATION  DYNAMICS EQUATIONS MUST BE SATISFIED: </p>
+			<p><button id = "see-equations">SEE EQUATIONS</button></p>
 			<p>ADJUST THE WEIGHTS AND THRESHOLD FOR NEW STD</p>
 			<p>W12 = W21 <input type="range" min="-1" max="1" step="0.1" value="0" class="slider" id="w12">Value: <span id="demo1" style="text-align: right;"></span></p>
 			<p>W23 = W32 <input type="range" min="-1" max="1" step="0.1" value="0" class="slider" id="w23">Value: <span id="demo2" style="text-align: right;"></span></p>
@@ -82,7 +84,44 @@
 		</div>
 	</div>
 
-
+	<div class = "row">
+		<div class = "column-4" id = "column4">
+			<h2> Energy Diagram</h2>
+			<div class="boxed">
+				0 0 0
+				<p style='color: red;' id="en1"> </p>
+			</div>
+			<div class="boxed">
+				0 0 1
+				<p style='color: red;' id="en2"> </p>
+			</div>
+			<div class="boxed">
+				0 1 0
+				<p style='color: red;' id="en3"> </p>
+			</div>
+			<div class="boxed">
+				1 0 0
+				<p style='color: red;' id="en4"> </p>
+			</div>
+			<div class="boxed">
+				0 1 1
+				<p style='color: red;' id="en5"> </p>
+			</div>
+			<div class="boxed">
+				1 0 1
+				<p style='color: red;' id="en6"> </p>
+			</div>
+			<div class="boxed">
+				1 1 0
+				<p style='color: red;' id="en7"> </p>
+			</div>
+			<div class="boxed">
+				1 1 1
+				<p style='color: red;' id="en8"> </p>
+			</div>
+			<p><button id = "calculate-energy">CALCULATE ENERGY</button></p>
+		</div>
+	</div>
 
 
 </body>

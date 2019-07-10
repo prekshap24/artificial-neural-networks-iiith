@@ -1,21 +1,7 @@
 window.onload = function(){
 	var count = 0;
-	var ev1;
-	var ev2;
-	var ev3;
-	var ev4;
-	var ev5;
-	var ev6;
-	var ev7;
-	var ev8;
-	var value1 = -1;
-	var value2 = 0;
-	var value3 = 0;
-	var value4 = 0;
-	var value5 = 0;
-	var value6 = 0;
-	var value7 = 0;
-	var value8 = 0;
+	var n1 = 0;
+	var n2 = 0;
 	var w21 = 0;
 	var w32 = 0;
 	var w13 = 0;
@@ -24,6 +10,9 @@ window.onload = function(){
 	var t3 = 0;
 	var n1 = -1;
 	var n2 = -1;
+	var all8 = [[0, 0, 0], [0, 0, 1], [0, 1, 0], [1, 0, 0], [0, 1, 1], [1, 0, 1], [1, 1, 0], [1, 1, 1]];
+	var valenergy = [];
+	var ansarray = [];
 
 	var slider1 = document.getElementById("w12");
 	var w12 = document.getElementById("demo1");
@@ -49,63 +38,68 @@ window.onload = function(){
 	}
 
 	function energy1(){
-		ev1 = "0 0 0";
-		value1 = 0;
 		document.getElementById("e1").innerHTML = "<span style='color: blue;'>0 0 0</span>";
 		count = count + 1;
-
+		ansarray.push(0);
+		ansarray.push(0);
+		ansarray.push(0);
 	}
 
 	function energy2(){
-		ev2 = "0 0 1";
-		value2 = 1;
 		document.getElementById("e2").innerHTML = "<span style='color: blue;'>0 0 1</span>";
 		count = count + 1;
+		ansarray.push(0);
+		ansarray.push(0);
+		ansarray.push(1);
 	}
 
 	function energy3(){
-		ev3 = "1 0 0";
-		value3 = 4;
-		document.getElementById("e3").innerHTML = "<span style='color: blue;'>1 0 0</span>";
+		document.getElementById("e3").innerHTML = "<span style='color: blue;'>0 1 0</span>";
 		count = count + 1;
+		ansarray.push(0);
+		ansarray.push(1);
+		ansarray.push(0);
 	}
 
 	function energy4(){
-		ev4 = "1 0 1";
-		value4 = 5;
-		document.getElementById("e4").innerHTML = "<span style='color: blue;'>1 0 1</span>";
+		document.getElementById("e4").innerHTML = "<span style='color: blue;'>1 0 0</span>";
 		count = count + 1;
+		ansarray.push(1);
+		ansarray.push(0);
+		ansarray.push(0);
 	}
 
 	function energy5(){
-		ev5 = "0 1 0";
-		value5 = 2;
-		document.getElementById("e5").innerHTML = "<span style='color: blue;'>0 1 0</span>";
+		document.getElementById("e5").innerHTML = "<span style='color: blue;'>0 1 1</span>";
 		count = count + 1;
+		ansarray.push(0);
+		ansarray.push(1);
+		ansarray.push(1);
 	}
 
 	function energy6(){
-		ev6 = "0 1 1";
-		value6 = 3;
-		document.getElementById("e6").innerHTML = "<span style='color: blue;'>0 1 1</span>";
+		document.getElementById("e6").innerHTML = "<span style='color: blue;'>1 0 1</span>";
 		count = count + 1;
+		ansarray.push(1);
+		ansarray.push(0);
+		ansarray.push(1);
 	}
 
 	function energy7(){
-		ev7 = "1 1 0";
-		value7 = 6;
 		document.getElementById("e7").innerHTML = "<span style='color: blue;'>1 1 0</span>";
 		count = count + 1;
+		ansarray.push(1);
+		ansarray.push(1);
+		ansarray.push(0);
 	}
 
 	function energy8(){
-		ev8 = "1 1 1";
-		value8 = 7;
 		document.getElementById("e8").innerHTML = "<span style='color: blue;'>1 1 1</span>";
 		count = count + 1;
+		ansarray.push(1);
+		ansarray.push(1);
+		ansarray.push(1);
 	}
-
-
 
 	function submit(){
 		if(count !== 2){
@@ -114,7 +108,9 @@ window.onload = function(){
 			return 0;
 		}
 
-		var hd = hammDistance(value1, value4);
+		n1 = (4 * ansarray[0]) + (2 * ansarray[1]) + (1 * ansarray[2]);
+		n2 = (4 * ansarray[3]) + (2 * ansarray[4]) + (1 * ansarray[5]);
+		var hd = hammDistance(n1, n2);
 		if(hd < 2){
 			alert("Hamming distance for energy states should be more than 1!");
 			alert("Refresh the page and Start again!");
@@ -165,14 +161,35 @@ window.onload = function(){
 		th3.textContent = this.value;
 	};
 
+	function showequations(){
+
+	}
+
 	function done(){
-		/*console.log(w21);
-		console.log(w32);
-		console.log(w13);
-		console.log(t1);
-		console.log(t2);
-		console.log(t3);*/
 		document.getElementById("column3").style.visibility = "hidden";
+		document.getElementById("title").textContent = "";
+		document.getElementById("column4").style.visibility = "visible";
+	}
+
+	function calculateEnergy(){
+		var i = 0;
+		var w11 = 0;
+		var w22 = 0;
+		var w33 = 0;
+		var num = 0;
+		for(i = 0; i < 8; i++){
+			num = (-1/2 * ((w11 * all8[i][0] * all8[i][0]) + (w21 * all8[i][0] * all8[i][1]) + (w13 * all8[i][0] * all8[i][2]) + (w21 * all8[i][1] * all8[i][0]) + (w22 * all8[i][1] * all8[i][1]) + (w32 * all8[i][1] * all8[i][2]) + (w13 * all8[i][2] * all8[i][0]) + (w32 * all8[i][2] * all8[i][1]) + (w33 * all8[i][2] * all8[i][2]))) + ((all8[i][0] * t1) + (all8[i][1] * t2) + (all8[i][2] * t3));
+			valenergy[i] = Math.round(num * 100) / 100;
+			console.log(valenergy[i]);
+		}
+		document.getElementById("en1").textContent = valenergy[0];
+		document.getElementById("en2").textContent = valenergy[1];
+		document.getElementById("en3").textContent = valenergy[2];
+		document.getElementById("en4").textContent = valenergy[3];
+		document.getElementById("en5").textContent = valenergy[4];
+		document.getElementById("en6").textContent = valenergy[5];
+		document.getElementById("en7").textContent = valenergy[6];
+		document.getElementById("en8").textContent = valenergy[7];
 	}
 
 	var add = document.getElementById("e1");
@@ -193,6 +210,10 @@ window.onload = function(){
 	add8.addEventListener("click", energy8);
 	var sub = document.getElementById("submit");
 	sub.addEventListener("click", submit);
+	var se = document.getElementById("see-equations");
+	se.addEventListener("click", showequations);
 	var don = document.getElementById("done");
 	don.addEventListener("click", done);
+	var cn = document.getElementById("calculate-energy");
+	cn.addEventListener("click", calculateEnergy);
 };
