@@ -180,7 +180,7 @@ window.onload = function(){
 		for(i = 0; i < 8; i++){
 			num = (-1/2 * ((w11 * all8[i][0] * all8[i][0]) + (w21 * all8[i][0] * all8[i][1]) + (w13 * all8[i][0] * all8[i][2]) + (w21 * all8[i][1] * all8[i][0]) + (w22 * all8[i][1] * all8[i][1]) + (w32 * all8[i][1] * all8[i][2]) + (w13 * all8[i][2] * all8[i][0]) + (w32 * all8[i][2] * all8[i][1]) + (w33 * all8[i][2] * all8[i][2]))) + ((all8[i][0] * t1) + (all8[i][1] * t2) + (all8[i][2] * t3));
 			valenergy[i] = Math.round(num * 100) / 100;
-			console.log(valenergy[i]);
+			//console.log(valenergy[i]);
 		}
 		document.getElementById("en1").textContent = valenergy[0];
 		document.getElementById("en2").textContent = valenergy[1];
