@@ -150,37 +150,37 @@ window.onload = function(){
 		document.getElementById("column3").style.visibility = "visible";
 	}
 
-	w12.innerHTML = slider1.value;
+	w12.textContent = slider1.value;
 	slider1.oninput = function(){
 		w21 = this.value;
 		w12.textContent = this.value;
 	}
 
-	w23.innerHTML = slider2.value;
+	w23.textContent = slider2.value;
 	slider2.oninput = function() {
 		w32 = this.value;
 		w23.textContent = this.value;
 	}
 
-	w31.innerHTML = slider3.value;
+	w31.textContent = slider3.value;
 	slider3.oninput = function() {
 		w13 = this.value;
 		w31.textContent = this.value;
 	}
 
-	th1.innerHTML = slider4.value;
+	th1.textContent = slider4.value;
 	slider4.oninput = function() {
 		t1 = this.value;
 		th1.textContent = this.value;
 	}
 
-	th2.innerHTML = slider5.value;
+	th2.textContent = slider5.value;
 	slider5.oninput = function() {
 		t2 = this.value;
 		th2.textContent = this.value;
 	}
 
-	th3.innerHTML = slider6.value;
+	th3.textContent = slider6.value;
 	slider6.oninput = function() {
 		t3 = this.value;
 		th3.textContent = this.value;
