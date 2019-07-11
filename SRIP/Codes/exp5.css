@@ -114,6 +114,22 @@ visibility: hidden;
 
 }
 
+.column-5 {
+
+float: center;
+
+text-align: center;
+
+width: 100%;
+
+padding: 15px;
+
+background-color: #d3d3d3;
+
+font-size: 18px;
+
+}
+
 .button{
 
 text-align: center;  

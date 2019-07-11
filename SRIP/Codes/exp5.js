@@ -164,6 +164,7 @@ window.onload = function(){
 		document.getElementById("image").style.display = "none";
 		document.getElementById("title").textContent = "HINT -->> W12=0.5; W23=0.6; W31=-0.5; Th1=0.4; Th2=-0.6; Th3=0.5";
 		document.getElementById("column3").style.visibility = "visible";
+		document.getElementById("explain").style.display = "none";
 	}
 
 	w12.textContent = slider1.value;
