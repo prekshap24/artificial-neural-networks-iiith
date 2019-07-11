@@ -1,12 +1,20 @@
-/* 000 011
-000 101
-000 110
-000 111
-001 110
-001 111
-010 111
-100 111 */
+/* 000 011...001 010
+000 101...001 100
+000 110...010 100
+000 111...
+001 110...
+001 111...101 011
+010 111...011 110
+100 111...110 101 */
 window.onload = function(){
+	var s11 = 0;
+	var s22 = 0;
+	var s33 = 0;
+	var s44 = 0;
+	var s55 = 0;
+	var s66 = 0;
+	var s77 = 0;
+	var s88 = 0;
 	var count = 0;
 	var n1 = 0;
 	var n2 = 0;
@@ -49,6 +57,7 @@ window.onload = function(){
 
 //when button 000 is pressed
 	function energy1(){
+		s11 = 1;
 		document.getElementById("e1").innerHTML = "<span style='color: blue;'>0 0 0</span>";
 		count = count + 1;
 		ansarray.push(0);
@@ -58,6 +67,7 @@ window.onload = function(){
 
 //when button 001 is pressed
 	function energy2(){
+		s22 = 1;
 		document.getElementById("e2").innerHTML = "<span style='color: blue;'>0 0 1</span>";
 		count = count + 1;
 		ansarray.push(0);
@@ -67,6 +77,7 @@ window.onload = function(){
 
 //when button 010 is pressed
 	function energy3(){
+		s33 = 1;
 		document.getElementById("e3").innerHTML = "<span style='color: blue;'>0 1 0</span>";
 		count = count + 1;
 		ansarray.push(0);
@@ -76,6 +87,7 @@ window.onload = function(){
 
 //when button 100 is pressed
 	function energy4(){
+		s44 = 1;
 		document.getElementById("e4").innerHTML = "<span style='color: blue;'>1 0 0</span>";
 		count = count + 1;
 		ansarray.push(1);
@@ -85,6 +97,7 @@ window.onload = function(){
 
 //when button 011 is pressed
 	function energy5(){
+		s55 = 1;
 		document.getElementById("e5").innerHTML = "<span style='color: blue;'>0 1 1</span>";
 		count = count + 1;
 		ansarray.push(0);
@@ -94,6 +107,7 @@ window.onload = function(){
 
 //when button 101 is pressed
 	function energy6(){
+		s66 = 1;
 		document.getElementById("e6").innerHTML = "<span style='color: blue;'>1 0 1</span>";
 		count = count + 1;
 		ansarray.push(1);
@@ -103,6 +117,7 @@ window.onload = function(){
 
 //when button 110 is pressed
 	function energy7(){
+		s77 = 1;
 		document.getElementById("e7").innerHTML = "<span style='color: blue;'>1 1 0</span>";
 		count = count + 1;
 		ansarray.push(1);
@@ -112,6 +127,7 @@ window.onload = function(){
 
 //when button 111 is pressed
 	function energy8(){
+		s88 = 1;
 		document.getElementById("e8").innerHTML = "<span style='color: blue;'>1 1 1</span>";
 		count = count + 1;
 		ansarray.push(1);
@@ -215,28 +231,28 @@ window.onload = function(){
 	}
 
 	function showequations(){
-		if(arr1[0] === 0 && arr1[1] === 0 && arr1[2] === 0){
+		if(s11 === 1){
 			document.getElementById("equation-1").textContent = "W12*(0) + W13*(0) <= th1 || W21*(0) + W23*(0) <= th2 || W31*(0) + W32*(0) <= th3";
 		}
-		else if(arr1[0] === 0 && arr1[1] === 0 && arr1[2] === 1){
+		else if(s22 === 1){
 			document.getElementById("equation-1").textContent = "W12*(0) + W13*(1) <= th1 || W21*(0) + W23*(1) <= th2 || W31*(0) + W32*(0) > th3";
 		}
-		else if(arr1[0] === 0 && arr1[1] === 1 && arr1[2] === 0){
+		else if(s33 === 1){
 			document.getElementById("equation-1").textContent = "W12*(1) + W13*(0) <= th1 || W21*(0) + W23*(0) > th2 || W31*(0) + W32*(1) <= th3";
 		}
-		else if(arr1[0] === 1 && arr1[1] === 0 && arr1[2] === 0){
+		else if(s44 === 1){
 			document.getElementById("equation-1").textContent = "W12*(0) + W13*(0) > th1 || W21*(1) + W23*(0) <= th2 || W31*(1) + W32*(0) <= th3";
 		}
-		else if(arr1[0] === 0 && arr1[1] === 1 && arr1[2] === 1){
+		else if(s55 === 1){
 			document.getElementById("equation-1").textContent = "W12*(1) + W13*(1) <= th1 || W21*(0) + W23*(1) > th2 || W31*(0) + W32*(1) > th3";
 		}
-		else if(arr1[0] === 1 && arr1[1] === 0 && arr1[2] === 1){
+		else if(s66 === 1){
 			document.getElementById("equation-1").textContent = "W12*(0) + W13*(1) > th1 || W21*(1) + W23*(1) <= th2 || W31*(1) + W32*(0) > th3";
 		}
-		else if(arr1[0] === 1 && arr1[1] === 1 && arr1[2] === 0){
+		else if(s77 === 1){
 			document.getElementById("equation-1").textContent = "W12*(1) + W13*(0) > th1 || W21*(1) + W23*(0) > th2 || W31*(1) + W32*(1) <= th3";
 		}
-		else if(arr1[0] === 1 && arr1[1] === 1 && arr1[2] === 1){
+		else if(s88 === 1){
 			document.getElementById("equation-1").textContent = "W12*(1) + W13*(1) > th1 || W21*(1) + W23*(1) > th2 || W31*(1) + W32*(1) > th3";
 		}
 
@@ -299,7 +315,266 @@ window.onload = function(){
 		document.getElementById("final").style.visibility = "visible";
 	}
 
-	function finalfunction(){}
+	function func1(){
+		//for 001
+		//for 000 011
+		var flag1 = 0;
+		var flag2 = 0;
+		var x3 = 0;
+		if(x3 > t3){
+			flag1 = 1;
+		}
+		var x2 = 0;
+		x2 = w32;
+		if(x2 < t2){
+			flag2 = 1;
+		}
+		if(flag1 && flag2){
+			document.getElementById("show-final").textContent = "FINAL STATE IS 001";
+		}		
+		//for 010
+		flag1 = 0;
+		flag2 = 0;
+		x2 = 0;
+		if(x2 > t2){
+			flag1 = 1;
+		}
+		x3 = 0;
+		x3 = w32;
+		if(x3 < t3){
+			flag2 = 1;
+		}
+		if(flag1 && flag2){
+			document.getElementById("show-final1").textContent = "FINAL STATE IS 010";
+		}
+		document.getElementById("show-final2").textContent = "SELECTED FINAL STATES ARE 000 AND 011";
+	}
+
+	function func2(){
+		//for 001
+		//for 000 101
+		var flag1 = 0;
+		var flag2 = 0;
+		var x3 = 0;
+		if(x3 > t3){
+			flag1 = 1;
+		}
+		var x2 = 0;
+		x2 = w13;
+		if(x2 < t1){
+			flag2 = 1;
+		}
+		if(flag1 && flag2){
+			document.getElementById("show-final").textContent = "FINAL STATE IS 001";
+		}		
+		//for 100
+		flag1 = 0;
+		flag2 = 0;
+		x2 = 0;
+		if(x2 > t1){
+			flag1 = 1;
+		}
+		x3 = 0;
+		x3 = w13;
+		if(x3 < t3){
+			flag2 = 1;
+		}
+		if(flag1 && flag2){
+			document.getElementById("show-final1").textContent = "FINAL STATE IS 100";
+		}
+		document.getElementById("show-final2").textContent = "SELECTED FINAL STATES ARE 000 AND 101";
+	}
+
+	function func3(){
+		//for 010
+		//for 000 110
+		var flag1 = 0;
+		var flag2 = 0;
+		var x3 = 0;
+		if(x3 > t2){
+			flag1 = 1;
+		}
+		var x2 = 0;
+		x2 = w21;
+		if(x2 < t1){
+			flag2 = 1;
+		}
+		if(flag1 && flag2){
+			document.getElementById("show-final").textContent = "FINAL STATE IS 010";
+		}		
+		//for 100
+		flag1 = 0;
+		flag2 = 0;
+		x2 = 0;
+		if(x2 > t1){
+			flag1 = 1;
+		}
+		x3 = 0;
+		x3 = w21;
+		if(x3 < t2){
+			flag2 = 1;
+		}
+		if(flag1 && flag2){
+			document.getElementById("show-final1").textContent = "FINAL STATE IS 100";
+		}
+		document.getElementById("show-final2").textContent = "SELECTED FINAL STATES ARE 000 AND 110";
+	}
+
+	function func4(){
+		//for 000 111
+		document.getElementById("show-final2").textContent = "SELECTED FINAL STATES ARE ONLY 000 AND 111";
+	}
+
+	function func5(){
+		//for 001 110
+		document.getElementById("show-final2").textContent = "SELECTED FINAL STATES ARE 001 AND 110";
+	}
+
+	function func6(){
+		//for 101
+		//for 001 111
+		var flag1 = 0;
+		var flag2 = 0;
+		var x3 = 0;
+		x3 = w13;
+		if(x3 > t1){
+			flag1 = 1;
+		}
+		var x2 = 0;
+		x2 = w21 + w32;
+		if(x2 < t2){
+			flag2 = 1;
+		}
+		if(flag1 && flag2){
+			document.getElementById("show-final").textContent = "FINAL STATE IS 101";
+		}		
+		//for 011
+		flag1 = 0;
+		flag2 = 0;
+		x2 = 0;
+		x2 = w32;
+		if(x2 > t2){
+			flag1 = 1;
+		}
+		x3 = 0;
+		x3 = w21 + w13;
+		if(x3 < t1){
+			flag2 = 1;
+		}
+		if(flag1 && flag2){
+			document.getElementById("show-final1").textContent = "FINAL STATE IS 011";
+		}
+		document.getElementById("show-final2").textContent = "SELECTED FINAL STATES ARE 001 AND 111";
+	}
+
+	function func7(){
+		//for 110
+		//for 010 111
+		var flag1 = 0;
+		var flag2 = 0;
+		var x3 = 0;
+		x3 = w21;
+		if(x3 > t1){
+			flag1 = 1;
+		}
+		var x2 = 0;
+		x2 = w13 + w32;
+		if(x2 < t3){
+			flag2 = 1;
+		}
+		if(flag1 && flag2){
+			document.getElementById("show-final").textContent = "FINAL STATE IS 110";
+		}		
+		//for 011
+		flag1 = 0;
+		flag2 = 0;
+		x2 = 0;
+		x2 = w32;
+		if(x2 > t3){
+			flag1 = 1;
+		}
+		x3 = 0;
+		x3 = w21 + w13;
+		if(x3 < t1){
+			flag2 = 1;
+		}
+		if(flag1 && flag2){
+			document.getElementById("show-final1").textContent = "FINAL STATE IS 011";
+		}
+		document.getElementById("show-final2").textContent = "SELECTED FINAL STATES ARE 010 AND 111";
+	}
+
+	function func8(){
+		//for 101
+		//for 100 111
+		var flag1 = 0;
+		var flag2 = 0;
+		var x3 = 0;
+		x3 = w13;
+		if(x3 > t3){
+			flag1 = 1;
+		}
+		var x2 = 0;
+		x2 = w21 + w32;
+		if(x2 < t2){
+			flag2 = 1;
+		}
+		if(flag1 && flag2){
+			document.getElementById("show-final").textContent = "FINAL STATE IS 101";
+		}		
+		//for 110
+		flag1 = 0;
+		flag2 = 0;
+		x2 = 0;
+		x2 = w21;
+		if(x2 > t2){
+			flag1 = 1;
+		}
+		x3 = 0;
+		x3 = w32 + w13;
+		if(x3 < t3){
+			flag2 = 1;
+		}
+		if(flag1 && flag2){
+			document.getElementById("show-final1").textContent = "FINAL STATE IS 110";
+		}
+		document.getElementById("show-final2").textContent = "SELECTED FINAL STATES ARE 100 AND 111";
+	}
+
+	function finalfunction(){
+		if(s11 === 1 && s55 === 1){
+			//000 011
+			func1();
+		}
+		else if(s11 === 1 && s66 === 1){
+			///000 101
+			func2();
+		}
+		else if(s11 === 1 && s77 === 1){
+			//000 110
+			func3();
+		}
+		else if(s11 === 1 && s88 === 1){
+			//000 111
+			func4();
+		}
+		else if(s22 === 1 && s77 === 1){
+			//001 110
+			func5();
+		}
+		else if(s22 === 1 && s88 === 1){
+			//001 111
+			func6();
+		}
+		else if(s33 === 1 && s88 === 1){
+			//010 111
+			func7();
+		}
+		else if(s44 === 1 && s88 === 1){
+			//100 111
+			func8();
+		}
+	}
 
 	var add = document.getElementById("e1");
 	add.addEventListener("click", energy1);
