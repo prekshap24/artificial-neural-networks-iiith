@@ -170,37 +170,37 @@ window.onload = function(){
 	slider1.oninput = function(){
 		w21 = this.value;
 		w12.textContent = this.value;
-	}
+	};
 
 	w23.textContent = slider2.value;
 	slider2.oninput = function() {
 		w32 = this.value;
 		w23.textContent = this.value;
-	}
+	};
 
 	w31.textContent = slider3.value;
 	slider3.oninput = function() {
 		w13 = this.value;
 		w31.textContent = this.value;
-	}
+	};
 
 	th1.textContent = slider4.value;
 	slider4.oninput = function() {
 		t1 = this.value;
 		th1.textContent = this.value;
-	}
+	};
 
 	th2.textContent = slider5.value;
 	slider5.oninput = function() {
 		t2 = this.value;
 		th2.textContent = this.value;
-	}
+	};
 
 	th3.textContent = slider6.value;
 	slider6.oninput = function() {
 		t3 = this.value;
 		th3.textContent = this.value;
-	}
+	};
 
 //displaying the equations
 	function showe(){
